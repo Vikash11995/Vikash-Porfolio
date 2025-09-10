@@ -36,12 +36,8 @@ export default function WebDeveloperPortfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-slate-100 antialiased overflow-y-auto no-scrollbar">
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="text-xl font-semibold">Vikash Yadav</div>
-        <nav className="space-x-6 text-sm opacity-90">
-          <a className="hover:underline cursor-pointer">Home</a>
-          <a className="hover:underline cursor-pointer">Work</a>
-          <a className="hover:underline cursor-pointer">About</a>
-          <a className="hover:underline cursor-pointer">Contact</a>
-        </nav>
+        {/* Hamburger menu state */}
+        <MobileNav />
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-12 ">
@@ -172,5 +168,75 @@ export default function WebDeveloperPortfolio() {
         </footer>
       </main>
     </div>
+  );
+}
+
+// Hamburger Navbar Component (moved out of JSX return)
+function MobileNav() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      {/* Desktop Nav */}
+      <nav className="space-x-6 text-sm opacity-90 hidden md:flex">
+        <a className="hover:underline cursor-pointer">Home</a>
+        <a className="hover:underline cursor-pointer">Work</a>
+        <a className="hover:underline cursor-pointer">About</a>
+        <a className="hover:underline cursor-pointer">Contact</a>
+      </nav>
+      {/* Mobile Hamburger */}
+      <div className="md:hidden relative">
+        <button
+          className="flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+          aria-label="Open navigation menu"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span
+            className={`block h-0.5 w-6 bg-slate-100 transition-all duration-300 ${
+              open ? "rotate-45 translate-y-1.5" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-slate-100 my-1 transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-slate-100 transition-all duration-300 ${
+              open ? "-rotate-45 -translate-y-1.5" : ""
+            }`}
+          />
+        </button>
+        {/* Mobile Nav Dropdown */}
+        {open && (
+          <div className="absolute right-0 mt-2 w-40 bg-slate-800 rounded shadow-lg py-2 z-50 flex flex-col">
+            <a
+              className="px-4 py-2 hover:bg-slate-700 cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              className="px-4 py-2 hover:bg-slate-700 cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              Work
+            </a>
+            <a
+              className="px-4 py-2 hover:bg-slate-700 cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              About
+            </a>
+            <a
+              className="px-4 py-2 hover:bg-slate-700 cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
