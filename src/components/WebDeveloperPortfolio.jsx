@@ -40,7 +40,7 @@ export default function WebDeveloperPortfolio() {
         <MobileNav />
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-12 ">
+      <main className="max-w-6xl mx-auto px-6 py- ">
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
           <div>
             <p className="text-emerald-300 font-medium mb-2">
@@ -70,24 +70,39 @@ export default function WebDeveloperPortfolio() {
               </a>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 w-100">
               <h4 className="text-sm text-slate-400 mb-2">Skills</h4>
-              <div className="flex flex-wrap gap-2">
-                {["React", "HTML", "CSS", "Tailwind", "JavaScript"].map((s) => (
-                  <span
-                    key={s}
-                    className="text-xs px-2 py-1 bg-white/5 rounded"
-                  >
-                    {s}
-                  </span>
-                ))}
+              <div className="overflow-x-hidden relative h-8">
+                <div
+                  className="absolute left-0 top-0 whitespace-nowrap animate-marquee flex gap-3"
+                  style={{
+                    animation: "marquee 10s linear infinite"
+                  }}
+                >
+                  {["#React", "#HTML", "#CSS", "#Tailwind", "#JavaScript", "#Redux", "#Bootstrap", "#GSAP", "#locomotive.js"].map((s, i) => (
+                    <span
+                      key={s + i}
+                      className="text-xs px-2 py-1 bg-white/5 rounded"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <style>
+                  {`
+                    @keyframes marquee {
+                      0% { transform: translateX(0); }
+                      100% { transform: translateX(-50%); }
+                    }
+                  `}
+                </style>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -right-8 -bottom-8 w-40 h-40  bg-emerald-500/10 blur-3xl " />
-            <img src="./src/images/ai-generated-8718795.svg" alt="" className="w-[62vw]" />
+          <div className="relative ">
+            <div className="absolute -right-8 -bottom-8 w-40 h-40 blur-3xl " />
+            <img src="./src/images/ai-generated-8718795.svg" alt="" className="w-[58vw]" />
           </div>
         </section>
 
@@ -178,11 +193,11 @@ function MobileNav() {
   return (
     <>
       {/* Desktop Nav */}
-      <nav className="space-x-6 text-sm opacity-90 hidden md:flex">
-        <a className="hover:underline cursor-pointer">Home</a>
-        <a className="hover:underline cursor-pointer">Work</a>
-        <a className="hover:underline cursor-pointer">About</a>
-        <a className="hover:underline cursor-pointer">Contact</a>
+      <nav className="space-x-10 mr-10 text-sm  hidden md:flex text-[16px] ">
+        <a className="hover:opacity-80 hover:text-green-600 cursor-pointer">Home</a>
+        <a className="hover:opacity-80 hover:text-green-600  cursor-pointer">Work</a>
+        <a className="hover:opacity-80 hover:text-green-600  cursor-pointer">About</a>
+        <a className="hover:opacity-80  hover:text-green-600 cursor-pointer">Contact</a>
       </nav>
       {/* Mobile Hamburger */}
       <div className="md:hidden relative">
@@ -209,7 +224,7 @@ function MobileNav() {
         </button>
         {/* Mobile Nav Dropdown */}
         {open && (
-          <div className="absolute right-0 mt-2 w-40 bg-slate-800 rounded shadow-lg py-2 z-50 flex flex-col">
+          <div className="absolute right-0 mt-2 w-40 bg-slate-800 rounded shadow-lg py-2 z-50 flex flex-col ">
             <a
               className="px-4 py-2 hover:bg-slate-700 cursor-pointer"
               onClick={() => setOpen(false)}
