@@ -40,7 +40,7 @@ export default function WebDeveloperPortfolio() {
         <MobileNav />
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py- ">
+      <main className="max-w-6xl mx-auto px-6  ">
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
           <div>
             <p className="text-emerald-300 font-medium mb-2">
