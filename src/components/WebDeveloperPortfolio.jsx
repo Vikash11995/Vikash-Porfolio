@@ -194,10 +194,10 @@ function MobileNav() {
     <>
       {/* Desktop Nav */}
       <nav className="space-x-10 mr-10 text-sm  hidden md:flex text-[16px] ">
-        <a className="hover:opacity-80 hover:text-green-600 cursor-pointer">Home</a>
+        <a className="hover:opacity-80 hover:text-green-600 cursor-pointer" href="/">Home</a>
         <a className="hover:opacity-80 hover:text-green-600  cursor-pointer">Work</a>
         <a className="hover:opacity-80 hover:text-green-600  cursor-pointer">About</a>
-        <a className="hover:opacity-80  hover:text-green-600 cursor-pointer">Contact</a>
+        <a className="hover:opacity-80  hover:text-green-600 cursor-pointer" href="#contact">Contact</a>
       </nav>
       {/* Mobile Hamburger */}
       <div className="md:hidden relative">
